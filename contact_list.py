@@ -47,12 +47,11 @@ class ContactList:
             self._contacts.remove(to_remove)
 
     def find_shared_contacts(self, contact_list: "ContactList") -> list:
-        matched_contacts = []
-        for contact in self._contacts:
-            if contact in contact_list.get_contacts:
-                matched_contacts.append(contact)
-
-        return matched_contacts
+        return [
+            contact
+            for contact in self._contacts
+            if contact in contact_list.get_contacts
+        ]
 
 
 friends = [
